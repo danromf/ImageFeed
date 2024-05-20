@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF7F83992BFA2965001E5C6A /* ImagesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7F83982BFA2965001E5C6A /* ImagesListCell.swift */; };
 		FF84CB8C2BE80D120093A552 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF84CB8B2BE80D120093A552 /* AppDelegate.swift */; };
 		FF84CB8E2BE80D120093A552 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF84CB8D2BE80D120093A552 /* SceneDelegate.swift */; };
-		FF84CB902BE80D120093A552 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF84CB8F2BE80D120093A552 /* ViewController.swift */; };
+		FF84CB902BE80D120093A552 /* ImagesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF84CB8F2BE80D120093A552 /* ImagesListViewController.swift */; };
 		FF84CB932BE80D120093A552 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = FF84CB922BE80D120093A552 /* Base */; };
 		FF84CB952BE80D140093A552 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF84CB942BE80D140093A552 /* Assets.xcassets */; };
 		FF84CB982BE80D140093A552 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = FF84CB972BE80D140093A552 /* Base */; };
@@ -17,10 +18,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FF7F83982BFA2965001E5C6A /* ImagesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListCell.swift; sourceTree = "<group>"; };
 		FF84CB882BE80D120093A552 /* ImageFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF84CB8B2BE80D120093A552 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF84CB8D2BE80D120093A552 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FF84CB8F2BE80D120093A552 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FF84CB8F2BE80D120093A552 /* ImagesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListViewController.swift; sourceTree = "<group>"; };
 		FF84CB922BE80D120093A552 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FF84CB942BE80D140093A552 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF84CB972BE80D140093A552 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -39,6 +41,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FF7F839A2BFA2986001E5C6A /* ImagesList */ = {
+			isa = PBXGroup;
+			children = (
+				FF7F83982BFA2965001E5C6A /* ImagesListCell.swift */,
+				FF84CB8F2BE80D120093A552 /* ImagesListViewController.swift */,
+			);
+			path = ImagesList;
+			sourceTree = "<group>";
+		};
 		FF84CB7F2BE80D120093A552 = {
 			isa = PBXGroup;
 			children = (
@@ -59,9 +70,9 @@
 		FF84CB8A2BE80D120093A552 /* ImageFeed */ = {
 			isa = PBXGroup;
 			children = (
+				FF7F839A2BFA2986001E5C6A /* ImagesList */,
 				FF84CB8B2BE80D120093A552 /* AppDelegate.swift */,
 				FF84CB8D2BE80D120093A552 /* SceneDelegate.swift */,
-				FF84CB8F2BE80D120093A552 /* ViewController.swift */,
 				FF84CB912BE80D120093A552 /* Main.storyboard */,
 				FF84CB942BE80D140093A552 /* Assets.xcassets */,
 				FF84CB962BE80D140093A552 /* LaunchScreen.storyboard */,
@@ -142,7 +153,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF84CB902BE80D120093A552 /* ViewController.swift in Sources */,
+				FF84CB902BE80D120093A552 /* ImagesListViewController.swift in Sources */,
+				FF7F83992BFA2965001E5C6A /* ImagesListCell.swift in Sources */,
 				FF84CB8C2BE80D120093A552 /* AppDelegate.swift in Sources */,
 				FF84CB8E2BE80D120093A552 /* SceneDelegate.swift in Sources */,
 			);
