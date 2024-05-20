@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ImagesListViewController: UIViewController {
+final class ImagesListViewController: UIViewController {
 
     @IBOutlet private var tableView: UITableView!
     
@@ -23,13 +23,13 @@ class ImagesListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView.rowHeight = 200
+
         tableView.contentInset = UIEdgeInsets(top: 12, left: 0, bottom: 12, right: 0)
     }
 }
 
 extension ImagesListViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return photosName.count
     }
@@ -57,18 +57,12 @@ extension ImagesListViewController {
         cell.cellImage.image = cellImage
         cell.dateLabel.text = dateFormatter.string(from: Date())
         
-        if indexPath.row % 2 == 0 {
-            cell.likeButton.imageView?.image = UIImage(named: "like_button_on") ?? UIImage()
-        } else {
-            cell.likeButton.imageView?.image = UIImage(named: "like_button_off") ?? UIImage()
-        }
+        let imageName = indexPath.row % 2 == 0 ? "like_button_on" : "like_button_off"
+        cell.likeButton.setImage(UIImage(named: imageName), for: .normal)
     }
 }
 
 extension ImagesListViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) { 
-        
-    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         guard let image = UIImage(named: photosName[indexPath.row]) else {
