@@ -133,13 +133,28 @@
                                 <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="brx-wq-6xY">
-                                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="264" height="369"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
                                 <viewLayoutGuide key="contentLayoutGuide" id="XDm-H1-s9j"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="qJz-SS-hJc"/>
+                                <connections>
+                                    <outlet property="delegate" destination="p0d-84-Bkm" id="sKW-ID-Yym"/>
+                                </connections>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TLM-Nu-clU">
+                                <rect key="frame" x="190" y="832" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="TLM-Nu-clU" secondAttribute="height" multiplier="1:1" id="iz7-IN-1DQ"/>
+                                    <constraint firstAttribute="width" constant="50" id="uWm-9s-RXY"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="Sharing"/>
+                                <connections>
+                                    <action selector="didTapShareButton:" destination="p0d-84-Bkm" eventType="touchUpInside" id="BvX-ng-1vJ"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2PU-H4-WFE">
                                 <rect key="frame" x="8" y="8" width="48" height="48"/>
                                 <constraints>
@@ -160,8 +175,10 @@
                             <constraint firstItem="2PU-H4-WFE" firstAttribute="top" secondItem="6t8-x3-SQk" secondAttribute="top" constant="8" id="6ol-2j-PXI"/>
                             <constraint firstItem="o6q-0X-sRf" firstAttribute="top" secondItem="E9u-XF-09E" secondAttribute="top" id="BjY-pW-gpd"/>
                             <constraint firstItem="2PU-H4-WFE" firstAttribute="leading" secondItem="6t8-x3-SQk" secondAttribute="leading" constant="8" id="Pbh-T8-aDI"/>
+                            <constraint firstItem="TLM-Nu-clU" firstAttribute="centerX" secondItem="o6q-0X-sRf" secondAttribute="centerX" id="fTb-ml-X1z"/>
                             <constraint firstItem="o6q-0X-sRf" firstAttribute="leading" secondItem="6t8-x3-SQk" secondAttribute="leading" id="isI-7n-jmw"/>
                             <constraint firstItem="6t8-x3-SQk" firstAttribute="trailing" secondItem="o6q-0X-sRf" secondAttribute="trailing" id="ocb-8N-e2g"/>
+                            <constraint firstAttribute="bottom" secondItem="TLM-Nu-clU" secondAttribute="bottom" constant="50" id="zdi-JG-6P0"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="mcD-Gv-WyM"/>
@@ -258,6 +275,7 @@
         <image name="Backward" width="24" height="24"/>
         <image name="Exit" width="24" height="24"/>
         <image name="Photo" width="70" height="70"/>
+        <image name="Sharing" width="51" height="51"/>
         <image name="like_button_on" width="42" height="42"/>
         <image name="tab_editorial_active" width="30" height="30"/>
         <image name="tab_profile_active" width="30" height="30"/>
