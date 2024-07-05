@@ -18,6 +18,14 @@
 		FF84CB952BE80D140093A552 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF84CB942BE80D140093A552 /* Assets.xcassets */; };
 		FF84CB982BE80D140093A552 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = FF84CB972BE80D140093A552 /* Base */; };
 		FF84CBA22BE811060093A552 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = FF84CBA12BE811060093A552 /* .gitignore */; };
+		FF96B04A2C19F7E70015C26E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF96B0492C19F7E70015C26E /* Constants.swift */; };
+		FF96B04D2C1B50930015C26E /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF96B04C2C1B50930015C26E /* AuthViewController.swift */; };
+		FF96B04F2C1B52450015C26E /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF96B04E2C1B52450015C26E /* WebViewViewController.swift */; };
+		FF96B0512C2483B70015C26E /* OAuth2Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF96B0502C2483B60015C26E /* OAuth2Service.swift */; };
+		FF96B0532C2494FC0015C26E /* URLSession+data.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF96B0522C2494FC0015C26E /* URLSession+data.swift */; };
+		FF96B0552C3258F40015C26E /* OAuthTokenResponseBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF96B0542C3258F40015C26E /* OAuthTokenResponseBody.swift */; };
+		FF96B0572C3269970015C26E /* OAuth2TokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF96B0562C3269970015C26E /* OAuth2TokenStorage.swift */; };
+		FF96B05A2C36C10D0015C26E /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF96B0592C36C10D0015C26E /* SplashViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +41,14 @@
 		FF84CB972BE80D140093A552 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF84CB992BE80D140093A552 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF84CBA12BE811060093A552 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		FF96B0492C19F7E70015C26E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FF96B04C2C1B50930015C26E /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		FF96B04E2C1B52450015C26E /* WebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewViewController.swift; sourceTree = "<group>"; };
+		FF96B0502C2483B60015C26E /* OAuth2Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2Service.swift; sourceTree = "<group>"; };
+		FF96B0522C2494FC0015C26E /* URLSession+data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+data.swift"; sourceTree = "<group>"; };
+		FF96B0542C3258F40015C26E /* OAuthTokenResponseBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthTokenResponseBody.swift; sourceTree = "<group>"; };
+		FF96B0562C3269970015C26E /* OAuth2TokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2TokenStorage.swift; sourceTree = "<group>"; };
+		FF96B0592C36C10D0015C26E /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +107,8 @@
 		FF84CB8A2BE80D120093A552 /* ImageFeed */ = {
 			isa = PBXGroup;
 			children = (
+				FF96B0582C36C0FF0015C26E /* Splash */,
+				FF96B04B2C1B50880015C26E /* Auth */,
 				FF4CC6682BFCC864007A0511 /* SingleImage */,
 				FF4CC6662BFC982F007A0511 /* Profile */,
 				FF7F839A2BFA2986001E5C6A /* ImagesList */,
@@ -100,8 +118,30 @@
 				FF84CB942BE80D140093A552 /* Assets.xcassets */,
 				FF84CB962BE80D140093A552 /* LaunchScreen.storyboard */,
 				FF84CB992BE80D140093A552 /* Info.plist */,
+				FF96B0492C19F7E70015C26E /* Constants.swift */,
+				FF96B0522C2494FC0015C26E /* URLSession+data.swift */,
 			);
 			path = ImageFeed;
+			sourceTree = "<group>";
+		};
+		FF96B04B2C1B50880015C26E /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				FF96B04C2C1B50930015C26E /* AuthViewController.swift */,
+				FF96B04E2C1B52450015C26E /* WebViewViewController.swift */,
+				FF96B0502C2483B60015C26E /* OAuth2Service.swift */,
+				FF96B0542C3258F40015C26E /* OAuthTokenResponseBody.swift */,
+				FF96B0562C3269970015C26E /* OAuth2TokenStorage.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		FF96B0582C36C0FF0015C26E /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				FF96B0592C36C10D0015C26E /* SplashViewController.swift */,
+			);
+			path = Splash;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,9 +219,17 @@
 			files = (
 				FF84CB902BE80D120093A552 /* ImagesListViewController.swift in Sources */,
 				FF4CC6652BFC908F007A0511 /* PofileViewController.swift in Sources */,
+				FF96B0552C3258F40015C26E /* OAuthTokenResponseBody.swift in Sources */,
 				FF7F83992BFA2965001E5C6A /* ImagesListCell.swift in Sources */,
 				FF84CB8C2BE80D120093A552 /* AppDelegate.swift in Sources */,
+				FF96B05A2C36C10D0015C26E /* SplashViewController.swift in Sources */,
+				FF96B04D2C1B50930015C26E /* AuthViewController.swift in Sources */,
+				FF96B04A2C19F7E70015C26E /* Constants.swift in Sources */,
 				FF4CC66A2BFCC877007A0511 /* SingleImageViewController.swift in Sources */,
+				FF96B0532C2494FC0015C26E /* URLSession+data.swift in Sources */,
+				FF96B04F2C1B52450015C26E /* WebViewViewController.swift in Sources */,
+				FF96B0512C2483B70015C26E /* OAuth2Service.swift in Sources */,
+				FF96B0572C3269970015C26E /* OAuth2TokenStorage.swift in Sources */,
 				FF84CB8E2BE80D120093A552 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
