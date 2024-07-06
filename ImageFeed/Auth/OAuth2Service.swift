@@ -38,7 +38,7 @@ final class OAuth2Service {
     func fetchOAuthToken(code: String, completion: @escaping (Result<String, Error>) -> Void) {
         guard let request = makeOAuthTokenRequest(code: code) else {
             DispatchQueue.main.async {
-                completion(.failure(NSError(domain: "OAuth2Service", code: 1001, userInfo: [NSLocalizedDescriptionKey: "Invalid URL Request"])))
+                completion(.failure(NetworkError.makeRequestError))
             }
             return
         }

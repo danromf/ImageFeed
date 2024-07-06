@@ -7,13 +7,6 @@
 
 import Foundation
 
-enum NetworkError: Error {
-    case httpStatusCode(Int)
-    case urlRequestError(Error)
-    case urlSessionError
-    case decodingError(Error)
-}
-
 extension URLSession {
     func data(
         for request: URLRequest,
@@ -25,7 +18,7 @@ extension URLSession {
             }
         }
         
-        let task = dataTask(with: request, completionHandler: { data, response, error in
+        let task = dataTask(with: request) { data, response, error in
             if let data = data, let response = response, let statusCode = (response as? HTTPURLResponse)?.statusCode {
                 if 200 ..< 300 ~= statusCode {
                     fullfilCompletionOnTheMainThread(.success(data))
@@ -40,7 +33,7 @@ extension URLSession {
                 print("URL Session Error: Unknown error")
                 fullfilCompletionOnTheMainThread(.failure(NetworkError.urlSessionError))
             }
-        })
+        }
         
         return task
     }

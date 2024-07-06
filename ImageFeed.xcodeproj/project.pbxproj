@@ -26,6 +26,7 @@
 		FF96B0552C3258F40015C26E /* OAuthTokenResponseBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF96B0542C3258F40015C26E /* OAuthTokenResponseBody.swift */; };
 		FF96B0572C3269970015C26E /* OAuth2TokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF96B0562C3269970015C26E /* OAuth2TokenStorage.swift */; };
 		FF96B05A2C36C10D0015C26E /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF96B0592C36C10D0015C26E /* SplashViewController.swift */; };
+		FF96B05C2C3924610015C26E /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF96B05B2C3924610015C26E /* NetworkError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		FF96B0542C3258F40015C26E /* OAuthTokenResponseBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthTokenResponseBody.swift; sourceTree = "<group>"; };
 		FF96B0562C3269970015C26E /* OAuth2TokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2TokenStorage.swift; sourceTree = "<group>"; };
 		FF96B0592C36C10D0015C26E /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		FF96B05B2C3924610015C26E /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				FF84CB992BE80D140093A552 /* Info.plist */,
 				FF96B0492C19F7E70015C26E /* Constants.swift */,
 				FF96B0522C2494FC0015C26E /* URLSession+data.swift */,
+				FF96B05B2C3924610015C26E /* NetworkError.swift */,
 			);
 			path = ImageFeed;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				FF96B04D2C1B50930015C26E /* AuthViewController.swift in Sources */,
 				FF96B04A2C19F7E70015C26E /* Constants.swift in Sources */,
 				FF4CC66A2BFCC877007A0511 /* SingleImageViewController.swift in Sources */,
+				FF96B05C2C3924610015C26E /* NetworkError.swift in Sources */,
 				FF96B0532C2494FC0015C26E /* URLSession+data.swift in Sources */,
 				FF96B04F2C1B52450015C26E /* WebViewViewController.swift in Sources */,
 				FF96B0512C2483B70015C26E /* OAuth2Service.swift in Sources */,
