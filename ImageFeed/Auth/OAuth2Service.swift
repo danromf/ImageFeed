@@ -7,8 +7,15 @@
 
 import Foundation
 
+enum AuthServiceError: Error {
+    case invalidRequest
+}
+
 final class OAuth2Service {
     static let shared = OAuth2Service()
+    
+    private var task: URLSessionTask?
+    private var lastCode: String?
     
     private init() {}
     
@@ -36,6 +43,16 @@ final class OAuth2Service {
     }
     
     func fetchOAuthToken(code: String, completion: @escaping (Result<String, Error>) -> Void) {
+        assert(Thread.isMainThread)
+        
+        guard lastCode != code else {
+            completion(.failure(AuthServiceError.invalidRequest))
+            return
+        }
+        
+        task?.cancel()
+        lastCode = code
+        
         guard let request = makeOAuthTokenRequest(code: code) else {
             DispatchQueue.main.async {
                 completion(.failure(NetworkError.makeRequestError))
@@ -43,7 +60,7 @@ final class OAuth2Service {
             return
         }
         
-        let task = URLSession.shared.data(for: request) { result in
+        let task = URLSession.shared.data(for: request) { [weak self] result in
             switch result {
             case .success(let data):
                 do {
@@ -60,8 +77,12 @@ final class OAuth2Service {
                 print("Network Error: \(error.localizedDescription)")
                 completion(.failure(error))
             }
+            
+            self?.task = nil
+            self?.lastCode = nil
         }
         
+        self.task = task
         task.resume()
     }
 }
