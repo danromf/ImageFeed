@@ -46,11 +46,17 @@ extension AuthViewController: WebViewViewControllerDelegate {
             switch (result) {
             case .success(let token):
                 self.delegate?.didAuthenticate(self)
-                print("Получен токен \(token)")
-            case .failure(let error):
-                //TODO
-                print("Ошибка получения токена \(error.localizedDescription)")
-                break
+            case .failure(_):
+                let alertController = UIAlertController(
+                    title: "Что-то пошло не так(",
+                    message: "Не удалось войти в систему", 
+                    preferredStyle: .alert)
+                
+                let action = UIAlertAction(title: "Ок", style: .cancel)
+                
+                alertController.addAction(action)
+                
+                present(alertController, animated: true)
             }
         }
     }

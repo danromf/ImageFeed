@@ -55,31 +55,27 @@ final class OAuth2Service {
         
         guard let request = makeOAuthTokenRequest(code: code) else {
             DispatchQueue.main.async {
+                print("[OAuth2Service] Network Error: Unsuccessful request making")
                 completion(.failure(NetworkError.makeRequestError))
             }
+            
             return
         }
         
-        let task = URLSession.shared.data(for: request) { [weak self] result in
+        let task = URLSession.shared.objectTask(for: request) { [weak self] (result: Result<OAuthTokenResponseBody, Error>) in
+            guard let self else { return }
+            
             switch result {
-            case .success(let data):
-                do {
-                    let decoder = JSONDecoder()
-                    let responseBody = try decoder.decode(OAuthTokenResponseBody.self, from: data)
-                    OAuth2TokenStorage.shared.token = responseBody.accessToken
-                    print("Токен успешно получен")
-                    completion(.success(responseBody.accessToken))
-                } catch {
-                    print("Decoding Error: \(error.localizedDescription)")
-                    completion(.failure(NetworkError.decodingError(error)))
-                }
+            case .success(let oAuthTokenResponse):
+                OAuth2TokenStorage.shared.token = oAuthTokenResponse.accessToken
+                completion(.success(oAuthTokenResponse.accessToken))
             case .failure(let error):
-                print("Network Error: \(error.localizedDescription)")
+                print("[OAuth2Service] Error: \(error.localizedDescription)")
                 completion(.failure(error))
             }
             
-            self?.task = nil
-            self?.lastCode = nil
+            self.task = nil
+            self.lastCode = nil
         }
         
         self.task = task
