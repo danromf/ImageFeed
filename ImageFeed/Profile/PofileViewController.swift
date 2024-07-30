@@ -6,13 +6,19 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class ProfileViewController: UIViewController {
-      private var avatarImageView: UIImageView?
-      private var nameLabel: UILabel!
-      private var loginNameLabel: UILabel!
-      private var descriptionLabel: UILabel!
-      private var logoutButton: UIButton!
+    private var avatarImageView: UIImageView?
+    private var nameLabel: UILabel!
+    private var loginNameLabel: UILabel!
+    private var descriptionLabel: UILabel!
+    private var logoutButton: UIButton!
+    
+    private var profileImageServiceObserver: NSObjectProtocol?
+    
+    private let profileService = ProfileService.shared
+    private let profileImageService = ProfileImageService.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +26,42 @@ final class ProfileViewController: UIViewController {
         view.backgroundColor = UIColor(red: 26/255.0, green: 27/255.0, blue: 34/255.0, alpha: 1)
         
         setupViews()
+        
+        guard let profile = profileService.profile else {
+            return
+        }
+        
+        updateProfileDetails(profile: profile)
+        
+        profileImageServiceObserver = NotificationCenter.default
+            .addObserver(
+                forName: ProfileImageService.didChangeNotification,
+                object: nil,
+                queue: .main
+            ) { [weak self] _ in
+                
+                guard let self else {
+                    return
+                }
+                
+                self.updateAvatar()
+            }
+        
+        
+        updateAvatar()
+    }
+    
+    private func updateAvatar() {
+        guard
+            let profileImageURL = profileImageService.avatarURL,
+            let url = URL(string: profileImageURL)
+        else {
+            return
+        }
+        
+        avatarImageView?.kf.indicatorType = .activity
+        let processor = RoundCornerImageProcessor(cornerRadius: 35)
+        avatarImageView?.kf.setImage(with: url, options: [.processor(processor)])
     }
     
     private func setupViews() {
@@ -28,6 +70,12 @@ final class ProfileViewController: UIViewController {
         layoutLoginNameLabel()
         layoutDescriptionLabel()
         layoutLogoutButton()
+    }
+    
+    private func updateProfileDetails(profile: Profile) {
+        nameLabel.text = profile.name
+        loginNameLabel.text = profile.loginName
+        descriptionLabel.text = profile.bio
     }
     
     private func layoutAvatarImageView() {
