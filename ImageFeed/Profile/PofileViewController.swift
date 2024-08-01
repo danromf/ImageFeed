@@ -1,10 +1,3 @@
-//
-//  PofileViewController.swift
-//  ImageFeed
-//
-//  Created by Даниил Романов on 21.05.2024.
-//
-
 import UIKit
 import Kingfisher
 
@@ -17,9 +10,9 @@ final class ProfileViewController: UIViewController & ProfileViewControllerProto
     private var presenter: ProfilePresenterProtocol?
     
     private var avatarImageView: UIImageView?
-    private var nameLabel: UILabel!
-    private var loginNameLabel: UILabel!
-    private var descriptionLabel: UILabel!
+    var nameLabel: UILabel!
+    var loginNameLabel: UILabel!
+    var descriptionLabel: UILabel!
     private var logoutButton: UIButton!
     
     override func viewDidLoad() {
@@ -142,6 +135,7 @@ final class ProfileViewController: UIViewController & ProfileViewControllerProto
         guard let avatarImageView = avatarImageView else { return }
         
         let logoutButton = UIButton.systemButton(with: UIImage(named: "Exit")!, target: self, action: #selector(didTapLogoutButton))
+        logoutButton.accessibilityIdentifier = "logoutButton"
         logoutButton.tintColor = UIColor(red: 245/255.0, green: 107/255.0, blue: 108/255.0, alpha: 1)
         
         logoutButton.translatesAutoresizingMaskIntoConstraints = false
@@ -158,8 +152,7 @@ final class ProfileViewController: UIViewController & ProfileViewControllerProto
         ])
     }
     
-    @objc
-    private func didTapLogoutButton() {
+    @objc func didTapLogoutButton() {
         let ac = UIAlertController(title: "Пока, пока!", message: "Уверены, что хотите выйти?", preferredStyle: .alert)
         
         let yesAction = UIAlertAction(title: "Да", style: .default) { [weak self] _ in

@@ -1,10 +1,3 @@
-//
-//  WebViewPresenterSpy.swift
-//  ImageFeedTests
-//
-//  Created by Даниил Романов on 01.08.2024.
-//
-
 import ImageFeed
 import Foundation
 

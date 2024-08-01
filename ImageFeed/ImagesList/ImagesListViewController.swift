@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  ImageFeed
-//
-//  Created by Даниил Романов on 06.05.2024.
-//
-
 import UIKit
 import Kingfisher
 
@@ -17,7 +10,7 @@ public protocol ImagesListViewControllerProtocol: AnyObject {
 final class ImagesListViewController: UIViewController & ImagesListViewControllerProtocol {
     private let showSingleImageSegueIdentifier = "ShowSingleImage"
     
-    @IBOutlet private var tableView: UITableView!
+    @IBOutlet var tableView: UITableView!
     
     private var presenter: ImagesListPresenterProtocol?
     

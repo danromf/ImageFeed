@@ -1,10 +1,3 @@
-//
-//  ImageListPresenter.swift
-//  ImageFeed
-//
-//  Created by Даниил Романов on 01.08.2024.
-//
-
 import Foundation
 
 public protocol ImagesListPresenterProtocol {

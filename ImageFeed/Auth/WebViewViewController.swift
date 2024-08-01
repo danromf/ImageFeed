@@ -1,10 +1,3 @@
-//
-//  WebViewViewController.swift
-//  ImageFeed
-//
-//  Created by Даниил Романов on 13.06.2024.
-//
-
 import UIKit
 import WebKit
 
@@ -44,6 +37,8 @@ final class WebViewViewController: UIViewController & WebViewViewControllerProto
                  guard let self else { return }
                  self.presenter?.didUpdateProgressValue(webView.estimatedProgress)
              })
+        
+        webView.accessibilityIdentifier = "UnsplashWebView"
     }
     
     func load(request: URLRequest) {
