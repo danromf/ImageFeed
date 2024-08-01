@@ -20,7 +20,7 @@ final class OAuth2Service {
     private init() {}
     
     private func makeOAuthTokenRequest(code: String) -> URLRequest? {
-        guard var urlComponents = URLComponents(string: WebViewConstants.unsplashTokenURLString) else {
+        guard var urlComponents = URLComponents(string: Constants.unsplashTokenURLString) else {
             return nil
         }
         

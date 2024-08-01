@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Photo {
+public struct Photo {
     private static var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
