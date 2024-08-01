@@ -43,23 +43,26 @@ class Image_FeedUITests: XCTestCase {
     }
     
     func testFeed() throws {
+        sleep(5)
         let tablesQuery = app.tables
-            
+        sleep(5)
         let cell = tablesQuery.children(matching: .cell).element(boundBy: 0)
         cell.swipeUp()
             
-        sleep(2)
+        sleep(3)
             
         let cellToLike = tablesQuery.children(matching: .cell).element(boundBy: 1)
             
+        sleep(3)
         cellToLike.buttons["like button off"].tap()
+        sleep(3)
         cellToLike.buttons["like button on"].tap()
             
-        sleep(2)
+        sleep(3)
             
         cellToLike.tap()
             
-        sleep(2)
+        sleep(3)
             
         let image = app.scrollViews.images.element(boundBy: 0)
         image.pinch(withScale: 3, velocity: 1)
@@ -79,6 +82,10 @@ class Image_FeedUITests: XCTestCase {
         
         app.buttons["logoutButton"].tap()
         
+        sleep(5)
+        
         app.alerts["Пока, пока!"].scrollViews.otherElements.buttons["Да"].tap()
+        
+        sleep(5)
     }
 }
