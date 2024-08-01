@@ -37,6 +37,10 @@
 		FF96B06E2C556B7C0015C26E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = FF96B06D2C556B7C0015C26E /* Kingfisher */; };
 		FF96B0712C581F940015C26E /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = FF96B0702C581F940015C26E /* SwiftKeychainWrapper */; };
 		FF96B0732C58269F0015C26E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF96B0722C58269F0015C26E /* TabBarController.swift */; };
+		FF96B0752C5959A70015C26E /* ImagesListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF96B0742C5959A70015C26E /* ImagesListService.swift */; };
+		FF96B0772C5959E80015C26E /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF96B0762C5959E70015C26E /* Photo.swift */; };
+		FF96B0792C595D5B0015C26E /* PhotoResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF96B0782C595D5B0015C26E /* PhotoResult.swift */; };
+		FF96B0882C5A6B0A0015C26E /* ProfileLogoutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF96B0872C5A6B0A0015C26E /* ProfileLogoutService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +72,10 @@
 		FF96B0682C5013630015C26E /* ProfileImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageService.swift; sourceTree = "<group>"; };
 		FF96B06A2C5443EF0015C26E /* UserResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResult.swift; sourceTree = "<group>"; };
 		FF96B0722C58269F0015C26E /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		FF96B0742C5959A70015C26E /* ImagesListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListService.swift; sourceTree = "<group>"; };
+		FF96B0762C5959E70015C26E /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		FF96B0782C595D5B0015C26E /* PhotoResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoResult.swift; sourceTree = "<group>"; };
+		FF96B0872C5A6B0A0015C26E /* ProfileLogoutService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLogoutService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +101,7 @@
 				FF96B0662C469CC40015C26E /* Profile.swift */,
 				FF96B0682C5013630015C26E /* ProfileImageService.swift */,
 				FF96B06A2C5443EF0015C26E /* UserResult.swift */,
+				FF96B0872C5A6B0A0015C26E /* ProfileLogoutService.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -110,6 +119,9 @@
 			children = (
 				FF7F83982BFA2965001E5C6A /* ImagesListCell.swift */,
 				FF84CB8F2BE80D120093A552 /* ImagesListViewController.swift */,
+				FF96B0742C5959A70015C26E /* ImagesListService.swift */,
+				FF96B0762C5959E70015C26E /* Photo.swift */,
+				FF96B0782C595D5B0015C26E /* PhotoResult.swift */,
 			);
 			path = ImagesList;
 			sourceTree = "<group>";
@@ -257,7 +269,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF96B0772C5959E80015C26E /* Photo.swift in Sources */,
 				FF84CB902BE80D120093A552 /* ImagesListViewController.swift in Sources */,
+				FF96B0752C5959A70015C26E /* ImagesListService.swift in Sources */,
 				FF4CC6652BFC908F007A0511 /* PofileViewController.swift in Sources */,
 				FF96B0552C3258F40015C26E /* OAuthTokenResponseBody.swift in Sources */,
 				FF96B0612C4694F10015C26E /* UIBlockingProgressHUD.swift in Sources */,
@@ -266,9 +280,11 @@
 				FF84CB8C2BE80D120093A552 /* AppDelegate.swift in Sources */,
 				FF96B05A2C36C10D0015C26E /* SplashViewController.swift in Sources */,
 				FF96B0632C469B250015C26E /* ProfileService.swift in Sources */,
+				FF96B0792C595D5B0015C26E /* PhotoResult.swift in Sources */,
 				FF96B04D2C1B50930015C26E /* AuthViewController.swift in Sources */,
 				FF96B04A2C19F7E70015C26E /* Constants.swift in Sources */,
 				FF4CC66A2BFCC877007A0511 /* SingleImageViewController.swift in Sources */,
+				FF96B0882C5A6B0A0015C26E /* ProfileLogoutService.swift in Sources */,
 				FF96B05C2C3924610015C26E /* NetworkError.swift in Sources */,
 				FF96B0732C58269F0015C26E /* TabBarController.swift in Sources */,
 				FF96B0532C2494FC0015C26E /* URLSession+data.swift in Sources */,

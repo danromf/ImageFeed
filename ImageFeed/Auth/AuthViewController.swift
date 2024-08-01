@@ -43,10 +43,10 @@ extension AuthViewController: WebViewViewControllerDelegate {
             
             UIBlockingProgressHUD.dismiss()
             
-            switch (result) {
-            case .success(let token):
+            switch result {
+            case .success:
                 self.delegate?.didAuthenticate(self)
-            case .failure(_):
+            case .failure:
                 let alertController = UIAlertController(
                     title: "Что-то пошло не так(",
                     message: "Не удалось войти в систему", 
