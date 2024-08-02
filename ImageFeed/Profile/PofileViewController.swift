@@ -1,24 +1,19 @@
-//
-//  PofileViewController.swift
-//  ImageFeed
-//
-//  Created by Даниил Романов on 21.05.2024.
-//
-
 import UIKit
 import Kingfisher
 
-final class ProfileViewController: UIViewController {
+public protocol ProfileViewControllerProtocol: AnyObject {
+    func updateAvatar(avatarURL: String)
+    func showProfile(profile: Profile)
+}
+
+final class ProfileViewController: UIViewController & ProfileViewControllerProtocol {
+    private var presenter: ProfilePresenterProtocol?
+    
     private var avatarImageView: UIImageView?
-    private var nameLabel: UILabel!
-    private var loginNameLabel: UILabel!
-    private var descriptionLabel: UILabel!
+    var nameLabel: UILabel!
+    var loginNameLabel: UILabel!
+    var descriptionLabel: UILabel!
     private var logoutButton: UIButton!
-    
-    private var profileImageServiceObserver: NSObjectProtocol?
-    
-    private let profileService = ProfileService.shared
-    private let profileImageService = ProfileImageService.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,35 +22,16 @@ final class ProfileViewController: UIViewController {
         
         setupViews()
         
-        guard let profile = profileService.profile else {
-            return
-        }
-        
-        updateProfileDetails(profile: profile)
-        
-        profileImageServiceObserver = NotificationCenter.default
-            .addObserver(
-                forName: ProfileImageService.didChangeNotification,
-                object: nil,
-                queue: .main
-            ) { [weak self] _ in
-                
-                guard let self else {
-                    return
-                }
-                
-                self.updateAvatar()
-            }
-        
-        
-        updateAvatar()
+        presenter?.viewDidLoad()
     }
     
-    private func updateAvatar() {
-        guard
-            let profileImageURL = profileImageService.avatarURL,
-            let url = URL(string: profileImageURL)
-        else {
+    func configure(_ presenter: ProfilePresenterProtocol) {
+        self.presenter = presenter
+        self.presenter?.view = self
+    }
+        
+    func updateAvatar(avatarURL: String) {
+        guard let url = URL(string: avatarURL) else {
             return
         }
         
@@ -72,7 +48,7 @@ final class ProfileViewController: UIViewController {
         layoutLogoutButton()
     }
     
-    private func updateProfileDetails(profile: Profile) {
+    func showProfile(profile: Profile) {
         nameLabel.text = profile.name
         loginNameLabel.text = profile.loginName
         descriptionLabel.text = profile.bio
@@ -159,6 +135,7 @@ final class ProfileViewController: UIViewController {
         guard let avatarImageView = avatarImageView else { return }
         
         let logoutButton = UIButton.systemButton(with: UIImage(named: "Exit")!, target: self, action: #selector(didTapLogoutButton))
+        logoutButton.accessibilityIdentifier = "logoutButton"
         logoutButton.tintColor = UIColor(red: 245/255.0, green: 107/255.0, blue: 108/255.0, alpha: 1)
         
         logoutButton.translatesAutoresizingMaskIntoConstraints = false
@@ -175,13 +152,12 @@ final class ProfileViewController: UIViewController {
         ])
     }
     
-    @objc
-    private func didTapLogoutButton() {
+    @objc func didTapLogoutButton() {
         let ac = UIAlertController(title: "Пока, пока!", message: "Уверены, что хотите выйти?", preferredStyle: .alert)
         
-        let yesAction = UIAlertAction(title: "Да", style: .default) { _ in
-            ProfileLogoutService.shared.logout()
-            OAuth2TokenStorage.shared.token = nil
+        let yesAction = UIAlertAction(title: "Да", style: .default) { [weak self] _ in
+            guard let self else { return }
+            self.presenter?.profileLogout()
             
             if let window = UIApplication.shared.windows.first {
                 let splashViewController = SplashViewController()

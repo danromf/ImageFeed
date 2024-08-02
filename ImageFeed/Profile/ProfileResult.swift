@@ -1,10 +1,3 @@
-//
-//  ProfileResult.swift
-//  ImageFeed
-//
-//  Created by Даниил Романов on 16.07.2024.
-//
-
 import Foundation
 
 struct ProfileResult: Codable {

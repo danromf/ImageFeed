@@ -1,10 +1,3 @@
-//
-//  OAuth2Service.swift
-//  ImageFeed
-//
-//  Created by Даниил Романов on 20.06.2024.
-//
-
 import Foundation
 
 enum AuthServiceError: Error {
@@ -20,7 +13,7 @@ final class OAuth2Service {
     private init() {}
     
     private func makeOAuthTokenRequest(code: String) -> URLRequest? {
-        guard var urlComponents = URLComponents(string: WebViewConstants.unsplashTokenURLString) else {
+        guard var urlComponents = URLComponents(string: Constants.unsplashTokenURLString) else {
             return nil
         }
         

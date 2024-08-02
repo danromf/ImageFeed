@@ -1,10 +1,3 @@
-//
-//  ImagesListCell.swift
-//  ImageFeed
-//
-//  Created by Даниил Романов on 19.05.2024.
-//
-
 import Foundation
 import UIKit
 

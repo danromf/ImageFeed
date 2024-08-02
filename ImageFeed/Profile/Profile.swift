@@ -1,13 +1,6 @@
-//
-//  Profile.swift
-//  ImageFeed
-//
-//  Created by Даниил Романов on 16.07.2024.
-//
-
 import Foundation
 
-struct Profile {
+public struct Profile {
     let username: String
     let name: String?
     let loginName: String

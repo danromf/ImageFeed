@@ -1,10 +1,3 @@
-//
-//  AuthViewController.swift
-//  ImageFeed
-//
-//  Created by Даниил Романов on 13.06.2024.
-//
-
 import UIKit
 import ProgressHUD
 
@@ -15,10 +8,14 @@ protocol AuthViewControllerDelegate: AnyObject {
 final class AuthViewController: UIViewController {
     private let showWebViewSegueIdentifier = "ShowWebView"
     
+    @IBOutlet weak var authenticateButton: UIButton!
+    
     weak var delegate: AuthViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        authenticateButton.accessibilityIdentifier = "Authenticate"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -26,6 +23,11 @@ final class AuthViewController: UIViewController {
             guard let webViewViewController = segue.destination as? WebViewViewController else {
                 fatalError("Failed to prepare for \(showWebViewSegueIdentifier)")
             }
+            
+            let authHelper = AuthHelper()
+            let webViewPresenter = WebViewPresenter(authHelper: authHelper)
+            webViewViewController.presenter = webViewPresenter
+            webViewPresenter.view = webViewViewController
             webViewViewController.delegate = self
         } else {
             super.prepare(for: segue, sender: sender)

@@ -1,13 +1,6 @@
-//
-//  Photo.swift
-//  ImageFeed
-//
-//  Created by Даниил Романов on 31.07.2024.
-//
-
 import Foundation
 
-struct Photo {
+public struct Photo {
     private static var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
